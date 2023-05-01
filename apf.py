@@ -12,7 +12,7 @@ from apf import _classes
 
 
 def main():
-    classes = _classes.okadminfinder()
+    classes = _classes.apf()
     warnings.filterwarnings(action="ignore", category=TrioDeprecationWarning)
 
     with classes.credit():

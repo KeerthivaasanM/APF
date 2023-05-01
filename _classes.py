@@ -48,7 +48,7 @@ class apf:
         )
 
         yield
-        print(green, """\tThank you for using OKadminFinder""", RESET_ALL)
+        print(green, """\tThank you for using APF""", RESET_ALL)
         print(
             green, DIM, f"\tTime needed : {(time.time() - t0):.2f}", RESET_ALL
         )  # noqa: E501
