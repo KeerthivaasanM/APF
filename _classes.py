@@ -25,7 +25,7 @@ BOLD = Style.BRIGHT
 RESET_ALL = Style.RESET_ALL
 
 
-class okadminfinder:
+class apf:
     @contextlib.contextmanager
     def credit(self):
         t0 = time.time()
@@ -82,12 +82,12 @@ class okadminfinder:
             )
         if url.host[0:4] == "www.":
             website = url.host.replace("www.", "")
-            for n in okadminfinder.get_links():
+            for n in apf.get_links():
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
         else:
             website = url.host
-            for n in okadminfinder.get_links():
+            for n in apf.get_links():
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
         return reqlinks
@@ -106,7 +106,7 @@ class okadminfinder:
 
     def proxy(self, prox, headers):
         try:
-            proxies = okadminfinder.get_proxy(prox)
+            proxies = apf.get_proxy(prox)
             with httpx.Client(headers=headers, proxies=proxies) as client:
                 client.get("https://httpbin.org/get")
         except (
@@ -139,7 +139,7 @@ class okadminfinder:
 
     async def url(self, website, headers, proxies):
         try:
-            if okadminfinder.check_url(website, headers, proxies):
+            if apf.check_url(website, headers, proxies):
                 print(
                     magenta,
                     BOLD,
@@ -152,7 +152,7 @@ class okadminfinder:
             else:
                 print(red, DIM, "Seems something wrong with url", RESET_ALL)
                 exit(1)
-            urls = okadminfinder.create_link(website)
+            urls = apf.create_link(website)
             admin_count = 0
             total_count = len(urls)
             pbar = tqdm(
