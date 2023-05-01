@@ -8,7 +8,7 @@ import trio
 from trio import TrioDeprecationWarning
 import warnings
 
-from apf import _classes
+import _classes
 
 
 def main():
